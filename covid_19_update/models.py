@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse # Used to generate URLs by reversing the URL patterns
+from django.db.models import Sum
 # Create your models here.
 class MyModelName(models.Model):
     """A typical class defining a model, derived from the Model class."""
@@ -44,8 +45,6 @@ class Author(models.Model):
     last_name = models.CharField(max_length=100)
     #id=models.AutoField(primary_key=True)	
     username=models.CharField(max_length=100)
-    date_of_birth = models.DateField(null=True, blank=True)
-    date_of_death = models.DateField('Died', null=True, blank=True)
     job = models.CharField(max_length=100)
     class Meta:
 	    db_table = "Author"
@@ -55,15 +54,14 @@ class Articles(models.Model):
 	title = models.CharField(max_length=200)
 	url   = models.CharField(max_length=200)
 	genre = models.ForeignKey(Genre, on_delete=models.CASCADE,null=True,db_constraint=False)
-	date_published = models.DateField(null=True, blank=True)
-	#id=models.AutoField(primary_key=True)	
-	author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
+	description=models.CharField(max_length=200)
+
+	
 	class Meta:
 		db_table = "Articles"
 
 class Area(models.Model):
-	#id	=models.AutoField(primary_key=True)	
-	Name=models.CharField(primary_key=True,max_length=100)
+	Name=models.CharField(max_length=100)
 	color=models.CharField(max_length=100)
 	img_id=models.CharField(max_length=100)
 	total_cases=models.IntegerField(default=0)
@@ -71,6 +69,7 @@ class Area(models.Model):
 	total_recovers=models.IntegerField(default=0)
 	total_hospitals=models.IntegerField(default=0)
 	population=models.IntegerField(default=0)
+	my_id=models.AutoField(primary_key=True)
 	class Meta:
 	    db_table = "Area"
 	
@@ -96,6 +95,19 @@ class Cases(models.Model):
 	class Meta:
 	    db_table = "Cases"
 
+class Deaths(models.Model):	
+		
+	area_id=models.ForeignKey(Area, on_delete=models.CASCADE,db_constraint=False)
+	
+	class Meta:
+	    db_table = "Deaths"
+		
+class Recovered(models.Model):	
+		
+	area_id=models.ForeignKey(Area, on_delete=models.CASCADE,db_constraint=False)
+	
+	class Meta:
+	    db_table = "Recovered"
 	
 class SuperMarket(models.Model):
 	#id =models.AutoField(primary_key=True)	
@@ -110,6 +122,7 @@ class Pharmacies(models.Model):
 	area_id=models.ForeignKey(Area, on_delete=models.CASCADE,db_constraint=False)
 	name=models.CharField(max_length=100)
 	location=models.CharField(max_length=100)
+	map=models.CharField(max_length=100)
 	class Meta:
 	    db_table = "Pharmacies"
     	
@@ -125,8 +138,12 @@ class Diagramms(models.Model):
 
 class Tweets(models.Model):
 	#id =models.AutoField(primary_key=True)
-	img=models.CharField(max_length=100)
-	description=models.CharField(max_length=100)
+	img=models.CharField(max_length=200)
+	#img=models.ImageField(upload_to='../softeng/static/css/')
+	description=models.CharField(max_length=500)
+	dir=models.CharField(max_length=100)
+	auth=models.CharField(max_length=100)
+	url=models.CharField(max_length=100)
 	class Meta:
 	    db_table = "Tweets"
 
