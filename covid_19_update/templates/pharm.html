@@ -14,12 +14,12 @@
         </div>
     </div>
     <div class="container">
-	{% for tw in tweets%}
+	{% for ph in pharm%}
         <div class="media"><img class="img-thumbnail img-fluid d-none d-sm-none d-md-none d-lg-inline d-xl-inline mr-3" src={{tw.dir}} width="100">
             <div class="media-body">
               
-				<button class="btn btn-primary"type="button" ><a style="color:white" href= {{tw.url}} target="_blank">  {{ tw.auth }} </button> </a>
-                <p>{{ tw.description }}</p>
+				<button class="btn btn-primary"type="button" ><a style="color:white" href= {{ph.url}} target="_blank">  {{ ph.name }} </button> </a>
+                <p>{{ ph.location }}</p>
             </div>
         </div>
 		{% endfor %}

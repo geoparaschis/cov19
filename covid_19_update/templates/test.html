@@ -1,31 +1,44 @@
 {% extends "base_generic.html" %}
 
-
-
-
-
 {% block content %}
-<div class="container-fluid">
-<div class="col-sm-15 ">
- <h3>Άρθα σχετικά με τον κορωνοιό στην Ελλάδα</h3>
- </div>
-  <div class="row">
-
-{% for article in articles %}
-<div class="col-sm-6  ">
-<div class="thumbnail">
-<img src="../static/css/tiktok-icon-black-1.svg" class="img-responsive">
-<!-- <h4>{{ article.title }}</h4> -->
-<h5><a href="https://www.facebook.com/"target="_blank">{{ article.title }}</a></h5>
-<p>{{ article.genre.name}}</p>
-
- </div>
- </div>
 
 
-{% endfor %}
-
-</div>
+<div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="jumbotron">
+                    <h1>'Αρθρα σχετικά με τον κορονοϊό στην Ελλάδα</h1>
+                    <p>Η Πατρίδα μας ανταποκρίθηκε με ταχύτητα και χωρίς προηγούμενα στις έκτακτες συνθήκες που αφορούσαν τον ιό. Στις αρχές Ιανουαρίου έγινε η πρώτη αναφορά για τον ιό στην συνάντηση των επιστημόνων του Εθνικού Οργανισμού Δημόσιας Υγείας
+                        και μάλιστα, όταν αναφερθήκαμε στο νέο ιό σαν μια πιθανή σημαντική απειλή, αντιμετωπίσαμε κάποια σκληρή κριτική, γιατί πράγματι τα έως τότε λίγα δεδομένα δεν αρκούσαν για να τεκμηριωθεί μία σοβαρή για τον κόσμο απειλή.</p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+ 
 </div>
 
+
+<div class="container">
+
+        <div class="card-columns">
+		   {% for article in articles %}
+		   
+		  
+            <div class="card bg-light"><img class="card-img-top w-100 d-block" src="../../static/assets/img/1135-staysafe.v1-754x450.png">
+		
+                <div class="card-body">
+                    <h4 class="card-title"><strong>{{ article.title }}</strong><br></h4>
+                    <p class="card-text">{{ article.description}}
+					</p><button class="btn btn-primary"type="button" ><a style="color:white" href= {{article.url}} target="_blank">Διαβάστε όλο το άρθρο  </button> </a>
+					<h4 class="card-category"><strong>{{ article.genre.name }}</strong><br></h4>
+			    </div>
+				    
+            </div>
+
+
+<!-- <div class="card"></div> -->
+
+{% endfor %} 
+ </div>
+ </div>
 {% endblock %}

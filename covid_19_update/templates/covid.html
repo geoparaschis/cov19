@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "base_generic.html" %}
+
+
+{% block content %}
+
+<div class="row" id="landingpage" style="height: 630px;font-size: 56px;">
+        <div class="col">
+            <div class="jumbotron" id="landing-jumbo" style="height: 1022;">
+                <h1 id="landing-h1" style="font-size: 41px;height: 63px;">Covid-19 in Greece</h1>
+                <p style="font-size: 18px;">Ο COVID-19 προσβάλλει διαφορετικά άτομα με διαφορετικούς τρόπους. Τα περισσότερα μολυσμένα άτομα εμφανίζουν ήπια έως μέτρια συμπτώματα και αναρρώνουν χωρίς να χρειάζεται να νοσηλευτούν.Πιο συχνά συμπτώματα είναι ο
+				πυρετός, ο ξηρός βήχας και η κόπωση. Εάν εμφανισετε κάποιο από τα συμπτώματα απευθυνθείτε στο τηλεφωνικό κέντρο του ΕΟΔΥ.
+&nbsp;</p><a class="btn btn-lg" role="button" id="landing-button" style="font-size: 21px;" href="{% url 'index' %}">Περισσότερα</a></div>
+   </div>
+</div>
+
+
+{% endblock %}
+
