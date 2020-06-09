@@ -1,0 +1,104 @@
+.card-group > .card:not(:last-child) .card-header, .card-group > .card:not(:last-child) .card-img-top {
+  height: 200px;
+}
+
+.card-group > .card:not(:first-child) .card-header, .card-group > .card:not(:first-child) .card-img-top {
+  height: 200px;
+}
+
+@media (min-width: 768px) {
+  .card-title {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-text {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .btn.btn-primary {
+    font-size: smaller;
+  }
+}
+
+@media (min-width: 576px) {
+  .card-columns {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 300px) {
+  h1 {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 300px) {
+  .card-title {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 300px) {
+  .card-text {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 300px) {
+  .btn.btn-primary {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-columns {
+    column-count: 3;
+  }
+}
+
+footer {
+  background-color: #4b2fa5;
+  /*margin-bottom: 0px;*/
+}
+
+#landingpage {
+  background: url(../../../static/assets/img/3669563.png) no-repeat;
+  background-size: cover;
+  /*text-align: center;*/
+  padding: 48px;
+}
+
+.jumbotron {
+  background-color: rgba(123,59,209,0.69);
+  text-align: center;
+  color: white;
+  padding: 48px;
+  margin: 10px 0;
+}
+
+#landing-button {
+  color: white;
+  background-color: rgb(75,47,165);
+  /*border: 5px rgb(148,114,232);*/
+}
+
+.btn-primary {
+  background-color: rgb(164,119,223);
+  border: none;
+}
+#btn-login-submit {
+  background-color: rgb(158,71,244);
+  color: white;
+}
+.map{
+	z-index:-1;
+	position: absolute;
+	left: 0px;
+    top: 0px;
+	
+	
+}
