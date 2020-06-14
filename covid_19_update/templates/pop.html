@@ -260,13 +260,14 @@ for (i = 0; i < names.length; i++) {
             <div class="container">
                 <div>
                     <ul class="nav nav-tabs">
-                        <li class="nav-item"><a class="nav-link bg-light" role="tab" data-toggle="tab" href="#tab-1" style="color: rgb(164,119,223);"><i class="fa fa-line-chart"></i><span style="padding-left: 10px;">Διαγράμματα</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1" style="color: rgb(164,119,223);"><i class="fa fa-line-chart"></i><span style="padding-left: 10px;">Διαγράμματα</span></a></li>
                         <li class="nav-item"><a class="nav-link bg-light" role="tab" data-toggle="tab" href="#tab-2" style="color: rgb(164,119,223);"><i class="fa fa-medkit"></i><span style="padding-left: 10px;">Φαρμακεία</span></a></li>
-                        <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-3" style="color: rgb(113,46,200);"><i class="fa fa-ambulance"></i><span style="padding-left: 10px;">Νοσοκομεία</span></a></li>
+                        <li class="nav-item"><a class="nav-link bg-light" role="tab" data-toggle="tab" href="#tab-3" style="color: rgb(113,46,200);"><i class="fa fa-ambulance"></i><span style="padding-left: 10px;">Νοσοκομεία</span></a></li>
                     </ul>
                     <div class="tab-content"><h4> Έχετε διαλέκει το Νομό {{areas}}</h4>
-                        <div class="tab-pane" role="tabpanel" id="tab-1"><p>Κρούσματα στο Νομό {{areas}} | {{ num_cases }}</p></div>
-                        
+                        <div class="tab-pane active" role="tabpanel" id="tab-1">
+						<p>Κρούσματα στο Νομό {{areas}} | {{ num_cases }}</p>
+                        <p>Θάνατοι στο Νομό {{areas}} | {{ num_deaths }}</p></div>
 						
 						<div class="tab-pane" role="tabpanel" id="tab-2">
 						{% for ph in pharm%}
@@ -292,7 +293,26 @@ for (i = 0; i < names.length; i++) {
 						
 						
 						
-                        <div class="tab-pane active" role="tabpanel" id="tab-3"><p>Νοσοκομεία | {{ areas }}</p></div>
+                        <div class="tab-pane " role="tabpanel" id="tab-3"><p>Νοσοκομεία | {{areas}}</p>
+						
+								{% for ph in hosp%}
+						 <div class="media"> 
+                        
+					
+
+						<div class="media-body">
+              
+				       <button class="btn btn-primary"type="button" ><a style="color:white; font-size:15px;" href= {{ph.location}} target="_blank"> {{ ph.name }} </button> </a>
+                    
+						
+						
+					 
+            </div>
+        </div>
+						
+						{% endfor %}
+						
+						</div>
 						
                     </div>
                 </div>
